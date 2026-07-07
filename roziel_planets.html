@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Planets</title>
+    </head>
+    <body>
+        <h1> My Planet Cards</h1>
+        <p> JavaScript can be used to create different objects within a class</p>
+
+        <button onclick="showplanets()">Click to see Planets</button>
+        <div class="cardholder">
+            <div id="earth"></div>
+            <div id="neptune"></div>
+            <div id="jupiter"></div>
+        </div>
+
+        <script>
+        class Planets{
+            constructor(name, fact){
+                this.name = name;
+                this.fact = fact;
+            }
+            describe(){
+                return this.name + ": " + this.fact;
+            }
+        }
+        function showplanets() {
+            let p1 = new Planets("Earth", "3rd closest planet to the sun")
+            let p2 = new Planets( "neptune", "Coldest planet in our solar system")
+            let p3 = new Planets( "jupiter", "The largest planet in the solar system")
+
+            document.getElementById("earth").innerHTML = 
+            "<div class = 'card'> <div class = 'planet-name'>" + p1.name + "</div><div class = 'planet-fact'>" + p1.describe() +  "</div> </div> "
+            document.getElementById("neptune").innerHTML =
+             "<div class = 'card'> <div class = 'planet-name'>" + p2.name + "</div><div class = 'planet-fact'>" + p2.describe() +  "</div> </div> "
+             document.getElementById("jupiter").innerHTML =
+             "<div class = 'card'> <div class = 'planet-name'>" + p3.name + "</div> <div class = 'planet-fact'>" + p3.describe() + "</div> </div>"
+        }
+        </script>
+    </body>
+</html>
