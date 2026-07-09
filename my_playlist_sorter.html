@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Playlist Sorter</title>
+    </head>
+    <body>
+
+    <div class="container py-4">
+        <h1> My Playlist Sorter</h1>
+        <p> This webpage will sort your favorite audios</p>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3> Song Names</h3>
+                <button onclick="sortAZ()"> A-Z order</button>
+                <button onclick="sortZA()"> Z-A order</button>
+                <div id="nameResult"class="box p-3 mt-3 rounded"></div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <button onclick="ascend()"> Least PLays to Most Plays</button>
+                <button onclick="descend()"> Most Plays to least plays</button>
+                <div id="labelResult"class="box p-3 mt-3 rounded"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    var songs = [
+        'zoom ', 'bounce ', 'glow ', 'spark ', 'rush '
+    ]
+    function sortAZ(){
+        songs.sort(); document.getElementById("nameResult").innerHTML= "Songs: "+ songs
+    }
+    function sortZA(){
+        songs.sort();  songs.reverse();document.getElementById("nameResult").innerHTML= "songs: " + songs
+    }
+    var plays= [
+        760 , 243 , 54, 76, 102
+    ]
+   function ascend() {
+    plays.sort(function(a, b){return (a-b);}) ; document.getElementById("labelResult").innerHTML =
+"ascend" + plays;
+   }
+      function descend() {
+    plays.sort(function(a, b){return (b-a);}) ; document.getElementById("labelResult").innerHTML =
+"descend" + plays;
+      }
+    </script>
+    </body>
+</html>
