@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> My Magic Words</title>
+    </head>
+    <body>
+
+    <div>
+        <div>
+            <h1> Check the magic words data types</h1>
+            <button onclick="checktypes()">Reveal Data Types</button>
+            <div id="typeResult">The secret type will be revealed once the buttonis clicked</div>
+        </div>
+
+        <div>
+            <h3> Switch the data types here</h3>
+            <input id="numbox" placeholder="write a message here then press one of the boxes"></div>
+            <button onclick="convstr()">Click to convert to text</button>
+            <button onclick="convnum()">Click to convert to a number</button>
+            <div id="inputResult"> The buttons above will change the data type of your input</div>
+        </div>
+        <div>
+            <input id="findw" placeholder = "Find the word"></input>
+            <input id="swapw" placeholder = "Swap the word"></input> 
+            <button onclick="findword()">Find the word with this button</button>
+            <button onclick="swapword()">Swap the word with this button</button>
+            <div id="wordResult">The buttons will change the sentence above</div>
+        </div>
+    </div>
+
+    <script>
+        function checktypes() {
+            document.getElementById("typeResult").innerHTML = 
+            "age = 15"  + " -" + typeof 15 + "\n" +
+            "name = Roziel" + " -" + typeof "Roziel" + "\n" +
+            "game over = true"+ " -" + typeof true
+        }
+        function convstr() {
+            var n = document.getElementById("numbox").value;
+            document.getElementById("inputResult").innerHTML = "After the number is converted to the string '" + String(n) + "'"
+        }
+        function convnum() {
+            var s = document.getElementById("numbox").value;
+            document.getElementById("inputResult").innerHTML = "After the text is converted into a number " + Number(s)
+        }
+        var sen = "The dragon flew over the castle."
+        function findword() {
+        var w = document.getElementById("findw").value
+        var p = sen.search(w);
+        document.getElementById("wordResult").innerHTML = p === -1 ? "'" + w + "' is not in the sentence — try another word!" : "Found '" + w + "' hiding at position " + p + "!";
+  }
+    function swapword() {
+    var w = document.getElementById("findw").value;
+    document.getElementById("wordResult").innerHTML = "New sentence: " + sen.replace(w, document.getElementById("swapw").value);
+  }
+    </script>
+    </body>
+</html>
